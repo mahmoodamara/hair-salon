@@ -1,0 +1,64 @@
+<app-navbaradmin></app-navbaradmin>
+
+<section id="hero" class="hero d-flex align-items-center">
+  <div class="container" *ngFor="let h of home">
+    <div class="row" >
+      <div class="col-lg-6 d-flex flex-column justify-content-center">
+        <div class="bt-update scrollto d-inline-flex">
+          <button data-toggle="modal" (click)="editHome(h)" data-target="#UPDATE">UPDATE</button>
+        </div>
+
+        <h1 data-aos="fade-up">{{h.h1}}</h1>
+        <h2 data-aos="fade-up" data-aos-delay="400">{{h.p}}</h2>
+        <div data-aos="fade-up" data-aos-delay="600">
+          <div class="text-center text-lg-start">
+            <a href="#about" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
+              <span>Get Started</span>
+              <i class="fa fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 hero-img" data-aos="zoom-out" data-aos-delay="200">
+        <img [src]="h.photo" class="img-fluid" alt="">
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<div class="modal fade" id="UPDATE" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="alert alert-primary" role="alert" *ngIf="showmassege">
+        This is a primary alert—check it out!
+      </div>
+      <div class="modal-body">
+        <div class="field">
+          <input type="hidden" name="serialnumber" />
+          <input type="text" class="form-control" name="serialnumber"   placeholder="Enter serialnumber"  [(ngModel)]="homes.h1" />
+       </div>
+      </div>
+      <div class="modal-body">
+        <div class="field">
+          <input type="text" class="form-control" name="serialnumber"   placeholder="Enter serialnumber"  [(ngModel)]="homes.p" />
+       </div>
+      </div>
+      <div class="modal-body">
+        <div class="field">
+          <input type="text" class="form-control" name="serialnumber"   placeholder="Enter serialnumber"  [(ngModel)]="homes.photo" />
+       </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" (click)="updateEmploye()" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
