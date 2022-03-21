@@ -1,0 +1,37 @@
+<app-navbar></app-navbar>
+<section id="menu" class="menu">
+  <div class="container">
+
+    <div class="section-title" data-aos="fade-up">
+      <h2>menu</h2>
+      <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem</p>
+    </div>
+
+    <div class="row" data-aos="fade-up" data-aos-delay="200">
+      <div class="col-lg-12 d-flex justify-content-center">
+        <ul id="menu-flters">
+          <li data-filter="*" class="filter-active">All</li>
+        </ul>
+      </div>
+    </div>
+    <div class="row gy-3">
+      <div class="col-lg-4 col-md-6 d-flex align-items-center" data-aos="fade-up" data-aos-delay="100" *ngFor="let menu of menu ">
+        <div class="menu-wrap">
+          <img [src]="menu.photo" class="img-fluid" alt="">
+          <div class="menu-info">
+            <h4>{{menu.hairCutName}}</h4>
+            <p>{{menu.hairCutPrice  | currency}}</p>
+            <div class="menu-links">
+              <a  routerLink="/booking" data-gallery="portfolioGallery" class="menu-lightbox" title="App 1"><i class="fa fa-plus"> book now </i></a>
+              <a href="portfolio-details.html" title="More Details"><i class="fa fa-link"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    
+    </div>
+
+    </div>
+
+</section>

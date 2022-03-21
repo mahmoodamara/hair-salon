@@ -1,0 +1,93 @@
+<app-navbaradmin></app-navbaradmin>
+
+<div class="limiter">
+    
+    <div class="container-table100">
+        
+        <div class="wrap-table100">
+            <div class="bt-update scrollto d-inline-flex">
+                <button data-toggle="modal" data-target="#UPDATE">Add User</button>
+              </div>
+            <div class="table100 ver1 m-b-110">
+                <div class="table100-head">
+                    
+                    <table>
+                        <thead>
+                            <tr class="row100 head">
+                                <th class="cell100 column1">Name</th>
+                                <th class="cell100 column2">Email</th>
+                                <th class="cell100 column3">Phone</th>
+                                <th class="cell100 column4"> Date</th>
+                                <th class="cell100 column4"> Update/Delete</th>
+
+
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+
+                <div class="table100-body js-pscroll" >
+                    <table>
+                        <tbody>
+                            <tr class="row100 body" *ngFor="let user of users">
+                                <td class="cell100 column1">{{user.username}}</td>
+                                <td class="cell100 column2">{{user.email}}</td>
+                                <td class="cell100 column3">{{user.phone}}</td>
+                                <td class="cell100 column4">{{user.date}}</td>
+                                <td>
+                                    <button id="btndelete" class="btn btn-primary" (click)="onDelete(user._id)">Delete</button>
+                                    <button id="btnedit" class="btn btn-primary"  style="margin-top: 5px;" data-toggle="modal" data-target="#UPDATE" (click)="editUser(user)">Update</button>
+                            </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="UPDATE" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="alert alert-primary" role="alert" *ngIf="showmassege">
+          This is a primary alert—check it out!
+        </div>
+        <div class="modal-body">
+          <div class="field">
+            <input type="hidden" name="_id"  [(ngModel)]="user._id"  />
+            <input type="text" class="form-control" name="username"   placeholder="Enter usename"  [(ngModel)]="user.username" />
+         </div>
+        </div>
+        <div class="modal-body">
+          <div class="field">
+            <input type="email" class="form-control" name="email"   placeholder="Enter email"  [(ngModel)]="user.email" />
+         </div>
+        </div>
+        <div class="modal-body">
+          <div class="field">
+            <input type="password" class="form-control" name="password"   placeholder="Enter password"  [(ngModel)]="user.password" />
+         </div>
+        </div>
+        <div class="modal-body">
+            <div class="field">
+              <input type="text" class="form-control" name="phone"   placeholder="Enter phone"  [(ngModel)]="user.phone" />
+           </div>
+          </div>
+          <div class="modal-body">
+            <div class="field">
+              <input type="date" class="form-control" name="date"   placeholder="Enter date"  [(ngModel)]="user.date" />
+           </div>
+          </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" (click)="addUser()">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
